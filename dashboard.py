@@ -5,12 +5,20 @@ import pandas as pd
 import pyttsx3
 
 FILE = None
-EXERCISE_OPTIONS = ["Push Ups", "Squats", "Sit Ups", "Lunges", "Plank"]
+EXERCISE_OPTIONS = ["Push Ups", "Squats", "Sit Ups", "Chest", "Plank"]
 SETS_OPTIONS = [1, 2, 3, 4, 5]
 REPS_OPTIONS = [5, 10, 12, 15, 20, 25, 30, 60]
 
 def speak(text):
     engine = pyttsx3.init()
+    voices = engine.getProperty('voices')
+    for voice in voices:
+        if 'female' in voice.name.lower() or 'zira' in voice.name.lower():
+            engine.setProperty('voice', voice.id)
+            break
+    else:
+        if len(voices) > 1:
+            engine.setProperty('voice', voices[1].id)
     engine.say(text)
     engine.runAndWait()
 
