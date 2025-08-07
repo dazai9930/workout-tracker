@@ -1,0 +1,6 @@
+{
+  "Push Ups": {"best": 30, "average": 20},
+  "Squats": {"best": 50, "average": 35},
+  "Sit Ups": {"best": 40, "average": 25},
+  "Chest": {"best": 20, "average": 15}
+}
